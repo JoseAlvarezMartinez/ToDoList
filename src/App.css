@@ -10,7 +10,7 @@ body {
   background-color: #444a52;
   height: 90vh;
   width: 85%;
-  max-width: 20rem;
+  max-width: 35rem;
   border-radius: .3rem;
 
   margin: 0 auto;
@@ -23,6 +23,7 @@ body {
   padding: .8rem .4rem;
   border-radius: .3rem;
   outline: none;
+  width: 100%;
 }
 
 .input-tarea::placeholder {
@@ -32,7 +33,7 @@ body {
   display: flex;
   align-items: center;
 
-  max-width: 13rem;
+  width: 70%;
   margin: 0 auto;
   padding: 0 1rem;
 
