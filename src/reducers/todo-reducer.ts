@@ -1,7 +1,4 @@
-interface PayLoadInterface {
-    tareaNueva: string,
-    id: number
-}
+import type { PayLoadInterface } from "../types"
 
 interface toDoReducerInterface {
     type: string,
