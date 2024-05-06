@@ -12,9 +12,8 @@ const generarID = () => new Date().getTime() * 10
 function App() {
 
   const [diaNumerico, mes, anio] = fechaActual;
-  const [tareaNueva, setTareaNueva] = useState("")
   const [state, dispatch] = useReducer(toDoReducer, [])
-  const refe = useRef(null)
+  const ref = useRef<HTMLInputElement>(null)
 
   return (
     <main className="main-card">
@@ -24,10 +23,11 @@ function App() {
         <CiTextAlignLeft color="#fff" />
 
         <input
-          ref={refe}
+          ref={ref}
           onKeyDown={e => {
-            if (e.code === "Enter") {
-              dispatch({ type: "AGREGAR_TAREA", payload: { tareaNueva:refe.current.value, id: generarID() } })
+            if (e.code === "Enter" && ref.current && ref.current.value.trim() !== "") {
+              dispatch({ type: "AGREGAR_TAREA", payload: { tareaNueva: ref.current.value.trim(), id: generarID() } })
+              ref.current.value = ""
             }
           }}
           className="input-tarea"

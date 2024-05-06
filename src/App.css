@@ -8,11 +8,13 @@ body {
 
 .main-card {
   background-color: #444a52;
-  height: 90vh;
+  min-height: 90vh;
+  height: 100%;
   width: 85%;
   max-width: 35rem;
   border-radius: .3rem;
 
+  padding-bottom: 1rem;
   margin: 0 auto;
 }
 
@@ -40,6 +42,8 @@ body {
   background-color: #343a40;
   border: 1px solid rgba(0, 0, 0, 0.471);
   border-radius: .3rem;
+
+  margin-bottom:1.5rem;
 }
 .dia-h2 {
   text-transform: capitalize;
@@ -57,4 +61,17 @@ body {
   text-transform: capitalize;
   color: rgba(218, 218, 218, 0.701);
   font-weight: 500;
+}
+.tarea-card{
+    border: 1px solid rgba(255, 255, 255, 0.163);
+    border-radius: .4rem;
+    width: 90%;
+    margin: .9rem auto;
+}
+.tarea-card h2{
+  margin: 0;
+  padding: .8rem;
+  font-weight: 400;
+  color: #fff;
+  font-size: 1.2rem;
 }

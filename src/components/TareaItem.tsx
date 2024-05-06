@@ -4,9 +4,10 @@ interface TareaItemProp {
 }
 
 const TareaItem = ({ tarea }: TareaItemProp) => {
-    console.log(tarea)
     return (
-        <div>TareaItem</div>
+        <section className="tarea-card">
+            <h2>{tarea.tareaNueva}</h2>
+        </section>
     )
 }
 
