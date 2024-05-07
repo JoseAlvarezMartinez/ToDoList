@@ -1,4 +1,5 @@
 export interface ToDoInterface{
-    descripcion:string
-    id:number
+    descripcion?:string
+    id?:number,
+    done?:boolean
 }

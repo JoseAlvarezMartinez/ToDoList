@@ -98,3 +98,6 @@ body {
   color: #fff;
   cursor: pointer;
 }
+.lista{
+  opacity: .5;
+}

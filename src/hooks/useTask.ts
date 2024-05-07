@@ -17,7 +17,7 @@ export const useTask = () => {
 
     const handleSubmit = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.code === "Enter" && ref.current?.value.trim()) {
-            dispatch({ type: "AGREGAR_TAREA", payload: { descripcion: ref.current.value.trim(), id: generarID() } })
+            dispatch({ type: "AGREGAR_TAREA", payload: { descripcion: ref.current.value.trim(), id: generarID(), done:false } })
             ref.current.value = ""
         }
     }

@@ -7,12 +7,17 @@ interface TareaItemProp {
 }
 
 const TareaItem = ({ tarea, dispatch }: TareaItemProp) => {
+  const { id, descripcion, done } = tarea
   return (
-    <section className="tarea-card">
-      <h3>{tarea.descripcion}</h3>
+    <section className={`tarea-card ${done ? "lista" : ""}`}>
+      <h3>{descripcion}</h3>
 
       <button
-        onClick={() => dispatch({ type: "ELIMINAR_TAREA", payload: { descripcion: "", id: tarea.id } })}
+        onClick={() => dispatch({ type: "FINALIZAR_TAREA", payload: { descripcion, id, done } })}
+      >Finalizada</button>
+
+      <button
+        onClick={() => dispatch({ type: "ELIMINAR_TAREA", payload: { id } })}
         className="delete-button">X</button>
     </section >
   )
