@@ -1,9 +1,10 @@
 import { CiTextAlignLeft } from "react-icons/ci";
 import { fechaActual } from "./helpers/fechas";
-import { useRef, useReducer } from "react";
+import { useRef, useReducer, useEffect } from "react";
 import { toDoReducer } from "./reducers/todo-reducer";
-import "./App.css"
 import TareaItem from "./components/TareaItem";
+import type { ToDoInterface } from "./types";
+import "./App.css"
 
 const diaTest = new Date().toLocaleDateString("es-ES", { weekday: "long" })
 
@@ -12,8 +13,12 @@ const generarID = () => new Date().getTime() * 10
 function App() {
 
   const [diaNumerico, mes, anio] = fechaActual;
-  const [state, dispatch] = useReducer(toDoReducer, [])
+  const [state, dispatch] = useReducer(toDoReducer, JSON.parse(localStorage.getItem("tareas")) || [])
   const ref = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    localStorage.setItem("tareas", JSON.stringify(state))
+  }, [state])
 
   const handleSubmit = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.code === "Enter" && ref.current?.value.trim()) {

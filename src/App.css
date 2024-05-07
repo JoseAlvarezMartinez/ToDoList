@@ -67,7 +67,7 @@ body {
 }
 
 .tarea-card {
-  border: 1px solid rgba(255, 255, 255, 0.163);
+
   border-radius: .4rem;
   width:70%;
   margin: .9rem auto;
@@ -77,6 +77,7 @@ body {
   justify-content: space-between;
 
   padding: .3rem 1rem;
+  background-color: #343a40;
 }
 
 .tarea-card h3 {
@@ -88,7 +89,7 @@ body {
 }
 
 .delete-button {
-  background-color: red;
+  background-color: #e93f79;
   border-radius: 50%;
   width: 2rem;
   font-weight: bolder;
