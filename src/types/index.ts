@@ -1,5 +1,4 @@
-
-export interface PayLoadInterface {
-    tareaNueva: string,
-    id: number
+export interface ToDoInterface{
+    descripcion:string
+    id:number
 }

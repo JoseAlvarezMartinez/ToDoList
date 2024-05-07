@@ -1,15 +1,19 @@
-import type { PayLoadInterface } from "../types"
+import type { ToDoInterface } from "../types"
 
-interface toDoReducerInterface {
+export interface ActionInterface {
     type: string,
-    payload: PayLoadInterface
+    payload: ToDoInterface
 }
 
-export const toDoReducer = (initialState: PayLoadInterface[], action: toDoReducerInterface) => {
+export const toDoReducer = (initialValue: ToDoInterface[], action: ActionInterface) => {
+
     switch (action.type) {
         case "AGREGAR_TAREA":
-            return [...initialState, action.payload]
+            return [...initialValue, action.payload]
+        case "ELIMINAR_TAREA":
+            return initialValue.filter(value => value.id !== action.payload.id)
         default:
-            return initialState
+            return initialValue
     }
+
 }

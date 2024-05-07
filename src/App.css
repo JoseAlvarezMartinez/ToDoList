@@ -31,7 +31,8 @@ body {
 .input-tarea::placeholder {
   color: #fff;
 }
-.input-background{
+
+.input-background {
   display: flex;
   align-items: center;
 
@@ -43,8 +44,9 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.471);
   border-radius: .3rem;
 
-  margin-bottom:1.5rem;
+  margin-bottom: 1.5rem;
 }
+
 .dia-h2 {
   text-transform: capitalize;
   text-align: center;
@@ -54,7 +56,8 @@ body {
   font-weight: 600;
   color: #fff;
 }
-.fecha-numerica-p{
+
+.fecha-numerica-p {
   margin-top: 0;
   color: #fff;
   text-align: center;
@@ -62,16 +65,35 @@ body {
   color: rgba(218, 218, 218, 0.701);
   font-weight: 500;
 }
-.tarea-card{
-    border: 1px solid rgba(255, 255, 255, 0.163);
-    border-radius: .4rem;
-    width: 90%;
-    margin: .9rem auto;
+
+.tarea-card {
+  border: 1px solid rgba(255, 255, 255, 0.163);
+  border-radius: .4rem;
+  width:70%;
+  margin: .9rem auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: .3rem 1rem;
 }
-.tarea-card h2{
+
+.tarea-card h3 {
   margin: 0;
   padding: .8rem;
   font-weight: 400;
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 1rem;
+}
+
+.delete-button {
+  background-color: red;
+  border-radius: 50%;
+  width: 2rem;
+  font-weight: bolder;
+  height: 2rem;
+  border: none;
+  color: #fff;
+  cursor: pointer;
 }
