@@ -16,6 +16,7 @@ body {
 
   padding-bottom: 1rem;
   margin: 0 auto;
+  padding-top: 2rem;
 }
 
 .input-tarea {
@@ -44,32 +45,11 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.471);
   border-radius: .3rem;
 
-  margin-bottom: 1.5rem;
 }
-
-.dia-h2 {
-  text-transform: capitalize;
-  text-align: center;
-  padding-top: 2rem;
-  padding-bottom: .2rem;
-  margin-bottom: 0;
-  font-weight: 600;
-  color: #fff;
-}
-
-.fecha-numerica-p {
-  margin-top: 0;
-  color: #fff;
-  text-align: center;
-  text-transform: capitalize;
-  color: rgba(218, 218, 218, 0.701);
-  font-weight: 500;
-}
-
 .tarea-card {
 
   border-radius: .4rem;
-  width:70%;
+  width: 70%;
   margin: .9rem auto;
 
   display: flex;
@@ -97,7 +77,4 @@ body {
   border: none;
   color: #fff;
   cursor: pointer;
-}
-.lista{
-  opacity: .5;
 }

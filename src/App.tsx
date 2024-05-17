@@ -1,34 +1,36 @@
 import { CiTextAlignLeft } from "react-icons/ci";
-import TareaItem from "./components/TareaItem";
+import { useReducer, KeyboardEvent, useRef } from "react";
+import { TaskReducer, initialState } from "./reducers/task-reducer";
+import { v4 as uuidv4 } from 'uuid';
 import "./App.css"
-import { useTask } from "./hooks/useTask";
+import TareaItem from "./components/TareaItem";
 
 function App() {
 
-  const { diaTest,
-    ref,
-    mes,
-    diaNumerico,
-    anio,
-    state,
-    dispatch,
-    handleSubmit } = useTask()
+  const [state, dispatch] = useReducer(TaskReducer, initialState);
+  const info = useRef(null)
+
+  const handleAdd = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.code === "Enter" && info.current?.value !== "") {
+      dispatch({ type: "add-task", payload: { taskName: info.current.value, taskID: uuidv4() } })
+      info.current.value = ""
+    }
+  }
 
   return (
     <main className="main-card">
-      <h2 className="dia-h2">{diaTest}</h2>
-      <p className="fecha-numerica-p">{mes} {diaNumerico}, {anio}</p>
       <div className="input-background">
         <CiTextAlignLeft color="#fff" />
         <input
-          ref={ref}
-          onKeyDown={handleSubmit}
+          ref={info}
+          onKeyDown={handleAdd}
           className="input-tarea"
           placeholder="Agregar una tarea"
           type="text" />
       </div>
-
-      {state.map(tarea => <TareaItem key={tarea.id} tarea={tarea} dispatch={dispatch} />)}
+      {
+        state.tasks.map(task => <TareaItem key={task.taskID} task={task} dispatch={dispatch} />)
+      }
     </main >
   )
 }

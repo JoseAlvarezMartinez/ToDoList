@@ -1,24 +1,20 @@
-import type { ToDoInterface } from "../types"
-import type { ActionInterface } from "../reducers/todo-reducer"
-import { Dispatch } from "react"
-interface TareaItemProp {
-  tarea: ToDoInterface,
-  dispatch: Dispatch<ActionInterface>
+import { ActionTypes } from "../reducers/task-reducer"
+import { TaskInfo } from "../types"
+
+interface TareaItemProps {
+  dispatch: React.Dispatch<ActionTypes>,
+  task: TaskInfo
 }
 
-const TareaItem = ({ tarea, dispatch }: TareaItemProp) => {
-  const { id, descripcion, done } = tarea
+const TareaItem = ({ dispatch, task: { taskName, taskID } }: TareaItemProps) => {
+
   return (
-    <section className={`tarea-card ${done ? "lista" : ""}`}>
-      <h3>{descripcion}</h3>
+    <section className={`tarea-card`}>
+      <h3>{taskName}</h3>
 
       <button
-        onClick={() => dispatch({ type: "FINALIZAR_TAREA", payload: { descripcion, id, done } })}
-      >Finalizada</button>
-
-      <button
-        onClick={() => dispatch({ type: "ELIMINAR_TAREA", payload: { id } })}
-        className="delete-button">X</button>
+      onClick={() => dispatch({type:"delete-task",payload:taskID})}
+      className="delete-button">X</button>
     </section >
   )
 }

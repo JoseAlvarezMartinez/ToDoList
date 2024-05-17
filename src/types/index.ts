@@ -1,5 +1,4 @@
-export interface ToDoInterface{
-    descripcion?:string
-    id?:number,
-    done?:boolean
+export interface TaskInfo{
+    taskName:string,
+    taskID:string
 }
