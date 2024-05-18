@@ -78,3 +78,20 @@ body {
   color: #fff;
   cursor: pointer;
 }
+.check-left{
+  display: flex;
+  align-items: center;
+}
+.task-done{
+  opacity: .3;
+  animation: taskDone .3s ease-in;
+}
+
+@keyframes taskDone {
+  0%{
+    opacity: 1;
+  }
+  100%{
+    opacity:.3;
+  }
+}

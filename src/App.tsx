@@ -1,9 +1,9 @@
+import TareaItem from "./components/TareaItem";
 import { CiTextAlignLeft } from "react-icons/ci";
 import { useReducer, KeyboardEvent, useRef } from "react";
 import { TaskReducer, initialState } from "./reducers/task-reducer";
 import { v4 as uuidv4 } from 'uuid';
 import "./App.css"
-import TareaItem from "./components/TareaItem";
 
 function App() {
 
@@ -12,7 +12,8 @@ function App() {
 
   const handleAdd = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.code === "Enter" && info.current?.value !== "") {
-      dispatch({ type: "add-task", payload: { taskName: info.current.value, taskID: uuidv4() } })
+      dispatch({ type: "add-task", payload: { taskName: info.current.value, taskID: uuidv4(),done:false } })
+
       info.current.value = ""
     }
   }
@@ -29,7 +30,7 @@ function App() {
           type="text" />
       </div>
       {
-        state.tasks.map(task => <TareaItem key={task.taskID} task={task} dispatch={dispatch} />)
+        state?.map(task => <TareaItem key={task.taskID} task={task} dispatch={dispatch} />)
       }
     </main >
   )
