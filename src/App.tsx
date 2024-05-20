@@ -13,11 +13,10 @@ const initialTask = {
   done: false
 }
 
+
 function App() {
 
-
-
-  const [state, dispatch] = useReducer(taskReducer, initialState)
+  const [state, dispatch] = useReducer(taskReducer, JSON.parse(localStorage.getItem("tasks")) || initialState)
   const [task, setTask] = useState<TaskInformation>(initialTask);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -27,8 +26,15 @@ function App() {
   const handleSubmit = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.code === "Enter") {
       dispatch({ type: "[TODO] Add Todo", payload: { ...task, id: uuidv4() } })
+
+      setTask(initialTask)
     }
   }
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(state))
+  }, [state])
+
   return (
     <main className="main-card">
       <div className="input-background">
