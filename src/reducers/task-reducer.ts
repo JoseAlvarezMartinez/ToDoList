@@ -1,27 +1,20 @@
-import type { TaskInfo } from "../types"
-
+import type { TaskInformation } from "../types"
 export type ActionTypes =
-    | { type: "add-task", payload: TaskInfo }
-    | { type: "delete-task", payload: TaskInfo["taskID"] }
-    | { type: "finish-task", payload: TaskInfo["taskID"] }
+    | { type: "[TODO] Add Todo", payload: TaskInformation }
+    | { type: "[TODO] Remove Todo", payload: TaskInformation["id"] }
+    | { type: "[TODO] Finish Todo", payload: TaskInformation["id"] }
 
-type InitialStateType = {
-    tasks: TaskInfo[],
-    taskID: TaskInfo["taskID"]
-}
+export const initialState: TaskInformation[] = []
 
-export const initialState: TaskInfo[] = []
-
-export const TaskReducer = (state: TaskInfo[] = initialState, action: ActionTypes) => {
-
+export const taskReducer = (state = initialState, action: ActionTypes) => {
     switch (action.type) {
-        case "add-task":
+        case "[TODO] Add Todo":
             return [...state, action.payload]
-        case "delete-task":
-            return state.filter(todo => todo.taskID !== action.payload)
-        case "finish-task":
+        case "[TODO] Remove Todo":
+            return state.filter(todo => todo.id !== action.payload)
+        case "[TODO] Finish Todo":
             return state.map(todo => {
-                if (todo.taskID === action.payload) {
+                if (todo.id === action.payload) {
                     return {
                         ...todo,
                         done: !todo.done
@@ -30,5 +23,4 @@ export const TaskReducer = (state: TaskInfo[] = initialState, action: ActionType
                 return todo
             })
     }
-
 }

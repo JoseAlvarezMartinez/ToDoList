@@ -1,23 +1,27 @@
-import { ActionTypes } from "../reducers/task-reducer"
 import { CiBookmarkCheck } from "react-icons/ci";
-import { TaskInfo } from "../types"
+import { ActionTypes } from "../reducers/task-reducer";
+import { TaskInformation } from "../types";
 
 interface TareaItemProps {
   dispatch: React.Dispatch<ActionTypes>,
-  task: TaskInfo
+  task: TaskInformation
 }
 
-const TareaItem = ({ dispatch, task: { taskName, taskID, done } }: TareaItemProps) => {
+
+const TareaItem = ({ dispatch, task }: TareaItemProps) => {
+
   return (
-    <section className={`tarea-card ${done ? "task-done" : ""}`}>
+    <section className={`tarea-card ${task.done ? "task-done" : ""}`}>
 
       <div className="check-left">
-        <CiBookmarkCheck color="#fff" size={"1.4rem"} onClick={() => dispatch({ type: "finish-task", payload: taskID })} />
-        <h3>{taskName}</h3>
+        <CiBookmarkCheck 
+        onClick={() => dispatch({type:"[TODO] Finish Todo",payload:task.id})}
+        color="#fff" size={"1.4rem"} />
+        <h3>{task.task}</h3>
       </div>
 
       <button
-        onClick={() => dispatch({ type: "delete-task", payload: taskID })}
+        onClick={() => dispatch({ type: "[TODO] Remove Todo", payload: task.id })}
         className="delete-button">X</button>
     </section >
   )

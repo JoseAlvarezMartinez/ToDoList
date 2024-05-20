@@ -1,5 +1,5 @@
-export interface TaskInfo{
-    taskName:string,
-    taskID:string,
+export type TaskInformation = {
+    id:string | undefined,
+    task:string,
     done:boolean
 }
